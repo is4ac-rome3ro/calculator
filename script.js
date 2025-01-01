@@ -60,9 +60,16 @@ var times = document.getElementById('times').addEventListener('click', function(
 });
 
 var exponentiation = document.getElementById('expo').addEventListener('click', function() {
+    //just testing
+    display.value += "x2"; 
+    let operationArray = [];
+
+    for(let element in operation) {
+        operationArray.push(operation[element]);
+    }
+
     let organizedArrayNumber = [];
     let numberToBeExpo = "";
-
     let index = operation.length - 1; 
 
     while(index > -1) {
@@ -74,13 +81,22 @@ var exponentiation = document.getElementById('expo').addEventListener('click', f
         ) {
             break;
         } else {
+            operationArray[index] = "x2";
             organizedArrayNumber.push(operation[index]);
             index--;
         }
     };
-
-    numberToBeExpo = organizedArrayNumber.reverse().join('');
     
+    operation = "";
+
+    for(let j in operationArray) {
+        if(operationArray[j] != "x2") {
+            operation += operationArray[j];
+        }
+    }
+
+    numberToBeExpo = Number(organizedArrayNumber.reverse().join(''));
+    operation += String(Math.pow(numberToBeExpo, 2));
 });
 
 var calculate = document.getElementById('equal-operator').addEventListener('click', function() {
