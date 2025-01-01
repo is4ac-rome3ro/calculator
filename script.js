@@ -1,5 +1,8 @@
 var display = document.getElementById('display'); //catch the display
+var resultDisplay = document.getElementById('result-display');
+
 var operation = ""; //variable used to makes the calculation and tell the result
+
 var sqrtOperation = false; //linked with the sqr botton
 var sqrtNumber = ""; //variable to save the user`s number to be squaretered root? haha  
 
@@ -106,10 +109,10 @@ var calculate = document.getElementById('equal-operator').addEventListener('clic
             operation += String(Math.sqrt(Number(sqrtNumber)));
             sqrtNumber = "";
         } else {
-            console.log(eval(operation));
+            resultDisplay.value  = eval(operation);
         }
 
     } catch(error) {
-        console.log("error");
+        resultDisplay.value = "error";
     }
 }); 
