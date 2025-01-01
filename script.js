@@ -1,5 +1,5 @@
 var display = document.getElementById('display'); //catch the display
-var operation; //variable used to makes the calculation and tell the result
+var operation = ""; //variable used to makes the calculation and tell the result
 var sqrtOperation = false; //linked with the sqr botton
 var sqrtNumber = ""; //variable to save the user`s number to be squaretered root? haha  
 
@@ -13,7 +13,6 @@ var numberButtons = document.querySelectorAll('.number-button').forEach(function
     button.addEventListener('click', function() { //add a trigger at each number button 
         if(sqrtOperation) { 
             sqrtNumber += button.value;
-            console.log(sqrtNumber)
         } else {
             operation += button.value; 
         }
@@ -55,11 +54,40 @@ var sqr = document.getElementById('sqr').addEventListener('click', function() {
     sqrtOperation = true;
 });
 
+var times = document.getElementById('times').addEventListener('click', function() {
+    display.value += "x"; 
+    operation += "*";
+});
+
+var exponentiation = document.getElementById('expo').addEventListener('click', function() {
+    let organizedArrayNumber = [];
+    let numberToBeExpo = "";
+
+    let index = operation.length - 1; 
+
+    while(index > -1) {
+        if(
+            operation[index] == "(" || 
+            operation[index] == ")" ||
+            operation[index] == "-" ||
+            operation[index] == "+"
+        ) {
+            break;
+        } else {
+            organizedArrayNumber.push(operation[index]);
+            index--;
+        }
+    };
+
+    numberToBeExpo = organizedArrayNumber.reverse().join('');
+    
+});
+
 var calculate = document.getElementById('equal-operator').addEventListener('click', function() {
     try {
         if(sqrtOperation) {
-            operation += String(Math.sqrt(Number(sqrtNumber)));
             sqrtOperation = false;
+            operation += String(Math.sqrt(Number(sqrtNumber)));
             sqrtNumber = "";
         } else {
             console.log(eval(operation));
