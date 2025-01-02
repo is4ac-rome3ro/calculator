@@ -53,7 +53,7 @@ var pi = document.getElementById('pi').addEventListener('click', function() {
 });
 
 var sqr = document.getElementById('sqr').addEventListener('click', function() {
-    display.value += "V"; 
+    display.value += "√"; 
     sqrtOperation = true;
 });
 
@@ -64,7 +64,7 @@ var times = document.getElementById('times').addEventListener('click', function(
 
 var exponentiation = document.getElementById('expo').addEventListener('click', function() {
     //just testing
-    display.value += "x2"; 
+    display.value += "²"; 
     let operationArray = [];
 
     for(let element in operation) {
@@ -84,7 +84,7 @@ var exponentiation = document.getElementById('expo').addEventListener('click', f
         ) {
             break;
         } else {
-            operationArray[index] = "x2";
+            operationArray[index] = "²";
             organizedArrayNumber.push(operation[index]);
             index--;
         }
@@ -93,7 +93,7 @@ var exponentiation = document.getElementById('expo').addEventListener('click', f
     operation = "";
 
     for(let j in operationArray) {
-        if(operationArray[j] != "x2") {
+        if(operationArray[j] != "²") {
             operation += operationArray[j];
         }
     }

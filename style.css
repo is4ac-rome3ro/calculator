@@ -1,0 +1,41 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+    border: 2px;
+    color: white;
+}
+
+body {
+    height: 100vh;
+}
+
+.container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(31, 30, 30);
+    width: 479px;
+}
+
+.display {
+    width: 479px;
+    height: 55px;
+    font-size: 22pt;
+    background-color: rgb(32, 32, 32);
+}
+
+button {
+    width: 90px;
+    height: 70px;
+    background-color: rgb(32, 32, 32);
+    font-size: 18pt;
+}
+
